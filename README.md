@@ -1,32 +1,5 @@
 # CS_MASTER
-
-> 개인별 CS 지식을 정리하는 페이지 입니다.
-
-## PART1. OS
-
-### [1. 프로세스와 쓰레드](./OS/ProcessAndThread/README.md)
-
-<br>
-<br>
-
-## PART2. Network
-
-### [1. OSI 7계층](./Network/OSI7.md)
-
-<br>
-<br>
-
-## PART3. JAVA
-
-<br>
-<br>
-=======
-# Tech Interview
-
----
-
 기술 면접 대비를 위한 CS정리 Repository입니다.
-
 ### ❤️ fork, Star 환영합니다.
 
 ### 📕 Contents
@@ -145,6 +118,7 @@
 
 <details>
    <summary> GC가 무엇인지, 필요한 이유는 무엇인지, 동작방식에 대해 설명해주세요. </summary>
+    ### [1. GarbageCollection](./JAVA/GC/README.md)
 <br />
 </details>
 <details>
