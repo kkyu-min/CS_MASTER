@@ -118,7 +118,7 @@
 
 <details>
    <summary> GC가 무엇인지, 필요한 이유는 무엇인지, 동작방식에 대해 설명해주세요. </summary>
-    [GC](https://github.com/kkyu-min/CS_MASTER/tree/main/JAVA/GC/README.md)
+    <a href="https://github.com/kkyu-min/CS_MASTER/tree/main/JAVA/GC/README.md">[GC]</a>
 <br />
 </details>
 <details>
