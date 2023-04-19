@@ -20,7 +20,7 @@ Mark and Sweep 과정
 1. Allocation Failure(할당 실패) : 사용 가능한 공간이 부족하여 힙에 객체를 할당할 수 없는 경우, JVM은 GC를 수행함.
 2. Heap Size : 힙이 특정 임계값에 도달하면 JVM은 가비지 컬렉션을 수행하여 메모리를 회수해 OutOfMemoryError를 방지함.
 3. 강제 호출 : System.gc(), Runtime.getRuntime().gc()로 강제로 gc를 수행함(gc가 발생한다고 보장할 수 없음)
-4. 시간 : 일부 GC 알고맂므은 시간에 기반하여 GC를 수행함.
+4. 시간 : 일부 GC 알고리즘은 시간에 기반하여 GC를 수행함.
 
 ### Weak Generational Hypothesis
 여러 소프트웨어에서 객체 수명은 이원적 양상을 보이는데, 대부분의 객체는 매우 짧은 시간만 살아있고 나머지 객체들은 기대 수명이 훨씬 길다는 것이다.  
