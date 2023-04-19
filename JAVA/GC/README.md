@@ -16,18 +16,22 @@ Mark and Sweep 과정
  3) Sweep 단계에서 가비지 컬렉터는 힙을 순회하면서 마크 비트가 0(false)인 모든 항목에 대해서 메모리를 회수한다.
  4) 모든 단계가 끝난 후, 모든 객체의 마크 비트를 0으로 초기화하고 할당된 메모리를 모으는 compact 작업을 수행한다. (메모리 단편화 방지)
 
-### 3. 가비지 컬렉션 수행 시점
+### 3. Stop the World
+2번 과정이 시작될 때, 'Stop the World' 라는 것이 발생하는데 이는 GC를 수행하는 스레드를 제외한 모든 스레드가 동작을 멈추는 것이다.  
+GC가 끝난 후에 중단했던 작업을 다시 수행한다. 어떠한 GC 알고리즘을 사용해도 'Stop the World' 는 발생하므로, GC 튜닝은 보통 이 시간을 줄이는 것을 의미한다.
+
+### 4. 가비지 컬렉션 수행 시점
 힙에서 가비지 컬렉션이 발생하는 조건은 각각의 환경에 따라 다르지만, 크게 아래의 조건을 따른다.
  1) Allocation Failure(할당 실패) : 사용 가능한 공간이 부족하여 힙에 객체를 할당할 수 없는 경우, JVM은 GC를 수행함.
  2) Heap Size : 힙이 특정 임계값에 도달하면 JVM은 가비지 컬렉션을 수행하여 메모리를 회수해 OutOfMemoryError를 방지함.
  3) 강제 호출 : System.gc(), Runtime.getRuntime().gc()로 강제로 gc를 수행함(gc가 발생한다고 보장할 수 없음)
  4) 시간 : 일부 GC 알고리즘은 시간에 기반하여 GC를 수행함.
 
-### 4. Weak Generational Hypothesis
+### 5. Weak Generational Hypothesis
 여러 소프트웨어에서 객체 수명은 이원적 양상을 보이는데, 대부분의 객체는 매우 짧은 시간만 살아있고 나머지 객체들은 기대 수명이 훨씬 길다는 것이다.  
 이러한 경험을 토대로 GC는 젋은 객체를 빠르게 수집해야 하고, 늙은 객체와 뗴어 놓는 것이 좋다는 것이라는 결론이 나왔다.
 
-### 5. Young Generation
+### 6. Young Generation
 위에서의 가설에 따라, 단명하는 객체들을 모아놓은 공간이다. 대부분의 객체가 이곳에서 소멸되고 새로 객체가 할당되기 때문에 GC가 자주 일어나는 공간이다.  
 자바에서 GC가 일어나는 동안에, GC를 수행하는 스레드를 제외한 모든 스레드가 멈추는 'Stop the World' 가 자주 발생하므로 이곳의 GC는 수행 시간이 짧아야만 한다.
 수행 시간이 짧아야 하므로, 수거해가는 객체의 수와 영역의 사이즈가 Old Generation에 비해 작다. (수행 시간이 짧으므로 Minor GC라고 부르는듯)  
@@ -36,7 +40,7 @@ Eden Space와 Survivor Space로 나뉜다.
 Eden Space : 새로운 객체가 생성되는 메모리 풀(Eden Space보다 용량이 큰 객체는 다른 영역에 할당 됨). 이 공간이 가득 차면 가비지 컬렉터는 참조되지 않는 객체를 제거하거나(Minor GC) 사용중인 경우 Survivor space에 저장한다.
 Survivor Space : Eden 영역의 GC로 인해 발생하는 오버헤드를 줄이고자 생긴 영역. From과 to라는 두 개의 공간으로 나뉘며 0, 1로도 구분한다. Eden Space보다 공간이 훨씬 작다.
 
-### 6. Minor GC
+### 7. Minor GC
 그럼 이제 Young Generation에서 발생하는 Minor GC에 대해서 생각해보자.
  1) 새롭게 생성된 객체는 Eden Space에 할당된다. 이 때 객체의 나이(generational count)는 0이다.
  2) 이 때, Eden Space에 공간이 없다면 Minor GC를 수행하게 된다. Stop the World가 발생한다.
@@ -48,17 +52,17 @@ Survivor Space : Eden 영역의 GC로 인해 발생하는 오버헤드를 줄이
  8) 그 뒤에 From과 To의 이름을 바꾼다.
  9) 그러다가, 어느정도 aging이 진행 된 객체는 Promotion하여 Old Generation으로 이동한다.
 
-### 7. Old Generation
+### 8. Old Generation
 수명이 긴 객체가 저장되는 공간이다. 특정 횟수의 가비지 컬렉션에서 살아남은 경우 결국 이 공간으로 이동한다. Tenured space라고도 부른다.  
 앞에서의 가설에 의해 이 공간은 Young Generation보다 훨씬 크며, GC 발생 횟수가 더 적다.
 
-### 8. Major GC
+### 9. Major GC
 Old Generation이 꽉 찼을 때 수행되는 GC이다. 기본적으로 이 공간의 메모리 할당률이 낮기 때문에 빈도가 적지만, Young Generation보다 훨씬 크기 때문에 GC의 수행 시간이 길다.
 
-### 9. Full GC
+### 10. Full GC
 Minor GC와 Major GC가 같이 발생하는 것을 Full GC라고 부른다. (힙 전체에서 실행)
 
-### 10. Major GC와 Full GC의 알고리즘
+### 11. Major GC와 Full GC의 알고리즘
 Serial GC: 단일 스레드로 작동하는 GC이다. Old 영역에서만 사용된다. Minor GC에서는 Mark-Sweep-Compact 알고리즘이 사용되고, Major GC에서는 Mark-Sweep 알고리즘이 사용된다.
 
 Parallel GC: Serial GC와 유사하지만 멀티 스레드를 사용하여 처리 속도를 높인다. Old 영역에서만 사용된다. Minor GC에서는 Mark-Summary-Compact 알고리즘이 사용되고, Major GC에서는 Mark-Summary-Compact와 Mark-Sweep-Compact 알고리즘이 사용된다.
