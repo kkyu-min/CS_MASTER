@@ -62,7 +62,18 @@
 <br />
 </details>
 
-CPU 스케줄링
+<details>
+   <summary> CPU 스케줄링 </summary>
+    <a href="https://github.com/kkyu-min/CS_MASTER/tree/main/OS/CPU-Scheduling">[7. CPU 스케줄링]</a>
+<br />
+</details>
+
+<details>
+   <summary> 데드락 </summary>
+    <a href="https://github.com/kkyu-min/CS_MASTER/tree/main/OS/DeadLock">[8. 데드락]</a>
+<br />
+</details>
+
 데드락(DeadLock)
 Race Condition
 세마포어(Semaphore) & 뮤텍스(Mutex)
