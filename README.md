@@ -28,19 +28,28 @@
 
 <details>
    <summary> 운영체제란 </summary>
-    ### [1. 운영체제란](./OS/OS/README.md)
+    <a href="https://github.com/kkyu-min/CS_MASTER/tree/main/OS/OS">[1. 운영체제란]</a>
 <br />
 </details>
 
 <details>
    <summary> 프로세스 vs 스레드 </summary>
-    ### [2. 프로세스 vs 스레드](./OS/ProcessAndThread/README.md)
+    <a href="https://github.com/kkyu-min/CS_MASTER/tree/main/OS/ProcessAndThread">[2. 프로세스 vs 스레드]</a>
 <br />
 </details>
 
-프로세스 주소 공간
-인터럽트(Interrupt)
-시스템 콜(System Call)
+<details>
+   <summary> 프로세스 주소 공간 </summary>
+    <a href="https://github.com/kkyu-min/CS_MASTER/tree/main/OS/ProcessAddressSpace">[3. 프로세스 주소 공간](./OS/ProcessAddressSpace/README.md)</a>
+<br />
+</details>
+
+<details>
+   <summary> 인터럽트(Interrupt)와 시스템 콜(System Call) </summary>
+    <a href="https://github.com/kkyu-min/CS_MASTER/tree/main/OS/InterruptAndSystemCall">[4. 인터럽트(Interrupt)와 시스템 콜(System Call)](./OS/InterruptAndSystemCall/README.md)</a>
+<br />
+</details>
+
 PCB와 Context Switching
 IPC(Inter Process Communication)
 CPU 스케줄링
