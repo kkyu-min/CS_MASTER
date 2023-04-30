@@ -50,8 +50,18 @@
 <br />
 </details>
 
-PCB와 Context Switching
-IPC(Inter Process Communication)
+<details>
+   <summary> PCB와 Context Switching </summary>
+    <a href="https://github.com/kkyu-min/CS_MASTER/tree/main/OS/ContextSwitching">[5. PCB와 컨텍스트 스위칭]</a>
+<br />
+</details>
+
+<details>
+   <summary> IPC(Inter Process Communication) </summary>
+    <a href="https://github.com/kkyu-min/CS_MASTER/tree/main/OS/IPC">[6. IPC]</a>
+<br />
+</details>
+
 CPU 스케줄링
 데드락(DeadLock)
 Race Condition
