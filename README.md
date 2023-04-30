@@ -32,7 +32,12 @@
 <br />
 </details>
 
-프로세스 vs 스레드
+<details>
+   <summary> 프로세스 vs 스레드 </summary>
+    ### [2. 프로세스 vs 스레드](./OS/ProcessAndThread/README.md)
+<br />
+</details>
+
 프로세스 주소 공간
 인터럽트(Interrupt)
 시스템 콜(System Call)
