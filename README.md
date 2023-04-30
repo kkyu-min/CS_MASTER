@@ -40,13 +40,13 @@
 
 <details>
    <summary> 프로세스 주소 공간 </summary>
-    <a href="https://github.com/kkyu-min/CS_MASTER/tree/main/OS/ProcessAddressSpace">[3. 프로세스 주소 공간](./OS/ProcessAddressSpace/README.md)</a>
+    <a href="https://github.com/kkyu-min/CS_MASTER/tree/main/OS/ProcessAddressSpace">[3. 프로세스 주소 공간]</a>
 <br />
 </details>
 
 <details>
    <summary> 인터럽트(Interrupt)와 시스템 콜(System Call) </summary>
-    <a href="https://github.com/kkyu-min/CS_MASTER/tree/main/OS/InterruptAndSystemCall">[4. 인터럽트(Interrupt)와 시스템 콜(System Call)](./OS/InterruptAndSystemCall/README.md)</a>
+    <a href="https://github.com/kkyu-min/CS_MASTER/tree/main/OS/InterruptAndSystemCall">[4. 인터럽트(Interrupt)와 시스템 콜(System Call)]</a>
 <br />
 </details>
 
