@@ -1,5 +1,7 @@
 # CS_MASTER
+
 기술 면접 대비를 위한 CS정리 Repository입니다.
+
 ### ❤️ fork, Star 환영합니다.
 
 ### 📕 Contents
@@ -23,7 +25,21 @@
   <p>인터럽트가 발생하면 현재 프로세스의 상태를 PCB에 저장하고 새로운 프로세스의 상태를 레지스터에 저장하는 방식으로 동작합니다. 이 때, CPU는 아무런 일을 하지 않으므로 잦은 컨텍스트 스위칭은 성능저하를 일으킬 수 있습니다.</p>
   <p>스레드와 프로세스의 동작방식이 약간 상이한데, 스레드는 캐시메모리나 PCB에 저장해야하는 내용이 적고, 비워야 하는 내용도 적기때문에 상대적으로 더 빠른 컨텍스트 스위칭이 일어날 수 있습니다.</p>
 </details>
-
+운영체제란
+프로세스 vs 스레드
+프로세스 주소 공간
+인터럽트(Interrupt)
+시스템 콜(System Call)
+PCB와 Context Switching
+IPC(Inter Process Communication)
+CPU 스케줄링
+데드락(DeadLock)
+Race Condition
+세마포어(Semaphore) & 뮤텍스(Mutex)
+페이징 & 세그먼테이션 (PDF)
+페이지 교체 알고리즘
+메모리(Memory)
+파일 시스템
 <br>
 
 # 2. 네트워크
